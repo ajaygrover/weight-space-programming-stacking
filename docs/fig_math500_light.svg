@@ -1,49 +1,49 @@
 <svg xmlns='http://www.w3.org/2000/svg' width='980' height='330' viewBox='0 0 980 330' role='img' aria-label='MATH-500 first 100: problems solved and tokens used by five models'>
-<rect width='980' height='330' rx='8' fill='#fcfcfb'/>
-<text x='178' y='95.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b' text-anchor='end'>Merged (Astra + Opus)</text>
-<text x='178' y='135.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#0b0b0b' text-anchor='end'>Astra edit (GPT-6)</text>
-<text x='178' y='175.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#0b0b0b' text-anchor='end'>Opus edit (Claude)</text>
-<text x='178' y='215.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#0b0b0b' text-anchor='end'>Random edit, same size</text>
-<text x='178' y='255.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#0b0b0b' text-anchor='end'>Base, unedited</text>
-<text x='190' y='42' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='15' font-weight='700' fill='#0b0b0b'>Problems solved (of 100)</text>
-<line x1='190.0' y1='62' x2='190.0' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='190.0' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>0</text>
-<line x1='300.0' y1='62' x2='300.0' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='300.0' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>20</text>
-<line x1='410.0' y1='62' x2='410.0' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='410.0' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>40</text>
-<line x1='520.0' y1='62' x2='520.0' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='520.0' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>60</text>
-<line x1='190' y1='62' x2='190' y2='270' stroke='#c3c2b7' stroke-width='1'/>
-<path d='M190,79.0 H488.5 Q492.5,79.0 492.5,83.0 V97.0 Q492.5,101.0 488.5,101.0 H190 Z' fill='#2a78d6'/>
-<text x='500.5' y='95.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>55</text>
-<path d='M190,119.0 H444.5 Q448.5,119.0 448.5,123.0 V137.0 Q448.5,141.0 444.5,141.0 H190 Z' fill='#c3c2b7'/>
-<text x='456.5' y='135.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>47</text>
-<path d='M190,159.0 H406.0 Q410.0,159.0 410.0,163.0 V177.0 Q410.0,181.0 406.0,181.0 H190 Z' fill='#c3c2b7'/>
-<text x='418.0' y='175.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>40</text>
-<path d='M190,199.0 H296.0 Q300.0,199.0 300.0,203.0 V217.0 Q300.0,221.0 296.0,221.0 H190 Z' fill='#c3c2b7'/>
-<text x='308.0' y='215.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>20</text>
-<path d='M190,239.0 H219.0 Q223.0,239.0 223.0,243.0 V257.0 Q223.0,261.0 219.0,261.0 H190 Z' fill='#c3c2b7'/>
-<text x='231.0' y='255.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>6</text>
-<text x='630' y='42' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='15' font-weight='700' fill='#0b0b0b'>Tokens used on the same 100 problems</text>
-<line x1='630.0' y1='62' x2='630.0' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='630.0' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>0M</text>
-<line x1='724.2857142857143' y1='62' x2='724.2857142857143' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='724.2857142857143' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>1M</text>
-<line x1='818.5714285714286' y1='62' x2='818.5714285714286' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='818.5714285714286' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>2M</text>
-<line x1='912.8571428571429' y1='62' x2='912.8571428571429' y2='270' stroke='#e1e0d9' stroke-width='1'/>
-<text x='912.8571428571429' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>3M</text>
-<line x1='630' y1='62' x2='630' y2='270' stroke='#c3c2b7' stroke-width='1'/>
-<path d='M630,79.0 H763.6571428571428 Q767.6571428571428,79.0 767.6571428571428,83.0 V97.0 Q767.6571428571428,101.0 763.6571428571428,101.0 H630 Z' fill='#2a78d6'/>
-<text x='775.6571428571428' y='95.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>1.46M</text>
-<path d='M630,119.0 H838.1428571428571 Q842.1428571428571,119.0 842.1428571428571,123.0 V137.0 Q842.1428571428571,141.0 838.1428571428571,141.0 H630 Z' fill='#c3c2b7'/>
-<text x='850.1428571428571' y='135.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>2.25M</text>
-<path d='M630,159.0 H820.2285714285715 Q824.2285714285715,159.0 824.2285714285715,163.0 V177.0 Q824.2285714285715,181.0 820.2285714285715,181.0 H630 Z' fill='#c3c2b7'/>
-<text x='832.2285714285715' y='175.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>2.06M</text>
-<path d='M630,199.0 H893.7714285714285 Q897.7714285714285,199.0 897.7714285714285,203.0 V217.0 Q897.7714285714285,221.0 893.7714285714285,221.0 H630 Z' fill='#c3c2b7'/>
-<text x='905.7714285714285' y='215.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>2.84M</text>
-<path d='M630,239.0 H922.0571428571429 Q926.0571428571429,239.0 926.0571428571429,243.0 V257.0 Q926.0571428571429,261.0 922.0571428571429,261.0 H630 Z' fill='#c3c2b7'/>
-<text x='934.0571428571429' y='255.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='400' fill='#52514e'>3.14M</text>
-<text x='16' y='316' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781'>Qwen3.5-0.8B, MATH-500 (fixed random 100), one sample each, 32k-token limit, bf16, llama.cpp. Merged vs random edit: 37 vs 2 problems solved only by one (p = 3e-9).</text>
+<rect width='980' height='330' rx='8' fill='#f3eee1'/>
+<text x='178' y='95.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='700' fill='#1f3c88' text-anchor='end'>Merged (Astra + Opus)</text>
+<text x='178' y='135.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88' text-anchor='end'>Astra edit (GPT-6)</text>
+<text x='178' y='175.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88' text-anchor='end'>Opus edit (Claude)</text>
+<text x='178' y='215.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88' text-anchor='end'>Random edit, same size</text>
+<text x='178' y='255.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88' text-anchor='end'>Base, unedited</text>
+<text x='190' y='42' font-family='Archivo Black,Arial Black,Helvetica,sans-serif' font-size='15' fill='#1f3c88'>Problems solved (of 100)</text>
+<line x1='190.0' y1='62' x2='190.0' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='190.0' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>0</text>
+<line x1='300.0' y1='62' x2='300.0' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='300.0' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>20</text>
+<line x1='410.0' y1='62' x2='410.0' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='410.0' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>40</text>
+<line x1='520.0' y1='62' x2='520.0' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='520.0' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>60</text>
+<line x1='190' y1='62' x2='190' y2='270' stroke='rgba(31,60,136,0.42)' stroke-width='1'/>
+<path d='M190,79.0 H488.5 Q492.5,79.0 492.5,83.0 V97.0 Q492.5,101.0 488.5,101.0 H190 Z' fill='#e5482b'/>
+<text x='500.5' y='95.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='700' fill='#c2391d'>55</text>
+<path d='M190,119.0 H444.5 Q448.5,119.0 448.5,123.0 V137.0 Q448.5,141.0 444.5,141.0 H190 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='456.5' y='135.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>47</text>
+<path d='M190,159.0 H406.0 Q410.0,159.0 410.0,163.0 V177.0 Q410.0,181.0 406.0,181.0 H190 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='418.0' y='175.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>40</text>
+<path d='M190,199.0 H296.0 Q300.0,199.0 300.0,203.0 V217.0 Q300.0,221.0 296.0,221.0 H190 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='308.0' y='215.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>20</text>
+<path d='M190,239.0 H219.0 Q223.0,239.0 223.0,243.0 V257.0 Q223.0,261.0 219.0,261.0 H190 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='231.0' y='255.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>6</text>
+<text x='630' y='42' font-family='Archivo Black,Arial Black,Helvetica,sans-serif' font-size='15' fill='#1f3c88'>Tokens used on the same 100 problems</text>
+<line x1='630.0' y1='62' x2='630.0' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='630.0' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>0M</text>
+<line x1='724.2857142857143' y1='62' x2='724.2857142857143' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='724.2857142857143' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>1M</text>
+<line x1='818.5714285714286' y1='62' x2='818.5714285714286' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='818.5714285714286' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>2M</text>
+<line x1='912.8571428571429' y1='62' x2='912.8571428571429' y2='270' stroke='rgba(46,84,156,0.13)' stroke-width='1'/>
+<text x='912.8571428571429' y='288' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e' text-anchor='middle'>3M</text>
+<line x1='630' y1='62' x2='630' y2='270' stroke='rgba(31,60,136,0.42)' stroke-width='1'/>
+<path d='M630,79.0 H763.6571428571428 Q767.6571428571428,79.0 767.6571428571428,83.0 V97.0 Q767.6571428571428,101.0 763.6571428571428,101.0 H630 Z' fill='#e5482b'/>
+<text x='775.6571428571428' y='95.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='700' fill='#c2391d'>1.46M</text>
+<path d='M630,119.0 H838.1428571428571 Q842.1428571428571,119.0 842.1428571428571,123.0 V137.0 Q842.1428571428571,141.0 838.1428571428571,141.0 H630 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='850.1428571428571' y='135.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>2.25M</text>
+<path d='M630,159.0 H820.2285714285715 Q824.2285714285715,159.0 824.2285714285715,163.0 V177.0 Q824.2285714285715,181.0 820.2285714285715,181.0 H630 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='832.2285714285715' y='175.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>2.06M</text>
+<path d='M630,199.0 H893.7714285714285 Q897.7714285714285,199.0 897.7714285714285,203.0 V217.0 Q897.7714285714285,221.0 893.7714285714285,221.0 H630 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='905.7714285714285' y='215.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>2.84M</text>
+<path d='M630,239.0 H922.0571428571429 Q926.0571428571429,239.0 926.0571428571429,243.0 V257.0 Q926.0571428571429,261.0 922.0571428571429,261.0 H630 Z' fill='rgba(31,60,136,0.30)'/>
+<text x='934.0571428571429' y='255.0' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='13' font-weight='400' fill='#1f3c88'>3.14M</text>
+<text x='16' y='316' font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace' font-size='11' fill='#5d636e'>Qwen3.5-0.8B, MATH-500 (fixed random 100), 1 sample each · 32k-token limit · bf16 · llama.cpp</text>
 </svg>

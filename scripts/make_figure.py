@@ -8,18 +8,18 @@ OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
 MODELS = ["Merged (Astra + Opus)", "Astra edit (GPT-6)", "Opus edit (Claude)", "Random edit, same size", "Base, unedited"]
 ACC = [55, 47, 40, 20, 6]                 # correct of 100
 TOK = [1.46, 2.25, 2.06, 2.84, 3.14]      # total completion tokens, millions, same 100 problems
-THEMES = {
-    "light": dict(surface="#fcfcfb", ink="#0b0b0b", ink2="#52514e", muted="#898781", grid="#e1e0d9",
-                  base="#c3c2b7", accent="#2a78d6", other="#c3c2b7"),
-    "dark": dict(surface="#1a1a19", ink="#f0efec", ink2="#c3c2b7", muted="#898781", grid="#2c2c2a",
-                 base="#383835", accent="#3987e5", other="#5a5955"),
-}
+# Superposition brand: cream notebook paper, ink blue, one red-orange correction-pen accent (merged only).
+# The page is always paper, so both files share one palette; the names stay for the README's <picture> markup.
+_BRAND = dict(surface="#f3eee1", ink="#1f3c88", ink2="#1f3c88", muted="#5d636e", grid="rgba(46,84,156,0.13)",
+              base="rgba(31,60,136,0.42)", accent="#e5482b", accent_text="#c2391d", other="rgba(31,60,136,0.30)")
+THEMES = {"light": _BRAND, "dark": _BRAND}
 W, H = 980, 330
 LABEL_W = 190            # model-name column
 PANEL_W = 330            # width of each bar area
 GAP = 110                # gap between panels (room for value labels)
 TOP, ROW, BAR = 70, 40, 22
-FONT = "font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif'"
+FONT = "font-family='IBM Plex Mono,JetBrains Mono,Consolas,monospace'"
+TITLE = "font-family='Archivo Black,Arial Black,Helvetica,sans-serif'"
 
 
 def rounded_bar(x, y, w, h, r, fill):
@@ -30,7 +30,7 @@ def rounded_bar(x, y, w, h, r, fill):
 
 
 def panel(x0, vals, xmax, ticks, fmt_tick, fmt_val, title, t):
-    s = [f"<text x='{x0}' y='{TOP - 28}' {FONT} font-size='15' font-weight='700' fill='{t['ink']}'>{title}</text>"]
+    s = [f"<text x='{x0}' y='{TOP - 28}' {TITLE} font-size='15' fill='{t['ink']}'>{title}</text>"]
     bottom = TOP + ROW * len(vals)
     for tv in ticks:
         x = x0 + PANEL_W * tv / xmax
@@ -42,7 +42,7 @@ def panel(x0, vals, xmax, ticks, fmt_tick, fmt_val, title, t):
         fill = t["accent"] if i == 0 else t["other"]
         w = PANEL_W * v / xmax
         s.append(rounded_bar(x0, y, w, BAR, 4, fill))
-        weight, col = ("700", t["ink"]) if i == 0 else ("400", t["ink2"])
+        weight, col = ("700", t["accent_text"]) if i == 0 else ("400", t["ink2"])
         s.append(f"<text x='{x0 + w + 8}' y='{y + BAR / 2 + 5}' {FONT} font-size='13' font-weight='{weight}' fill='{col}'>{fmt_val(v)}</text>")
     return s
 
@@ -59,7 +59,7 @@ def svg(t):
     s += panel(x1, ACC, 60, [0, 20, 40, 60], str, str, "Problems solved (of 100)", t)
     s += panel(x2, TOK, 3.5, [0, 1, 2, 3], lambda v: f"{v}M", lambda v: f"{v:.2f}M", "Tokens used on the same 100 problems", t)
     s.append(f"<text x='16' y='{H - 14}' {FONT} font-size='11' fill='{t['muted']}'>Qwen3.5-0.8B, MATH-500 (fixed random 100), "
-             f"one sample each, 32k-token limit, bf16, llama.cpp. Merged vs random edit: 37 vs 2 problems solved only by one (p = 3e-9).</text>")
+             f"1 sample each · 32k-token limit · bf16 · llama.cpp</text>")
     s.append("</svg>")
     return "\n".join(s)
 
@@ -74,7 +74,7 @@ def svg_tokens(t):
     s = [f"<svg xmlns='http://www.w3.org/2000/svg' width='{w}' height='{h}' viewBox='0 0 {w} {h}' role='img' "
          f"aria-label='Tokens saved by the merged edit relative to Astra, per benchmark'>",
          f"<rect width='{w}' height='{h}' rx='8' fill='{t['surface']}'/>",
-         f"<text x='16' y='30' {FONT} font-size='15' font-weight='700' fill='{t['ink']}'>Fewer tokens than Astra's edit alone (same problems)</text>"]
+         f"<text x='16' y='30' {TITLE} font-size='15' fill='{t['ink']}'>Fewer tokens than Astra's edit alone (same problems)</text>"]
     bottom = top + row * len(SAVE)
     for tv in (-20, 0, 20, 40, 60):
         x = zero + tv * scale
@@ -83,7 +83,7 @@ def svg_tokens(t):
     for i, (name, v) in enumerate(SAVE):
         y = top + row * i + (row - bar) / 2
         s.append(f"<text x='{lw - 10}' y='{y + bar / 2 + 5}' {FONT} font-size='13' fill='{t['ink']}' text-anchor='end'>{name}</text>")
-        fill = t["accent"] if v > 0 else t["other"]
+        fill = t["ink"] if v > 0 else t["other"]
         if v >= 0:
             s.append(rounded_bar(zero, y, v * scale, bar, 4, fill))
             s.append(f"<text x='{zero + v * scale + 8}' y='{y + bar / 2 + 5}' {FONT} font-size='13' font-weight='700' fill='{t['ink']}'>{v}% fewer</text>")
@@ -91,7 +91,7 @@ def svg_tokens(t):
             wv = -v * scale
             s.append(f"<path d='M{zero},{y} H{zero - wv + 4} Q{zero - wv},{y} {zero - wv},{y + 4} V{y + bar - 4} Q{zero - wv},{y + bar} {zero - wv + 4},{y + bar} H{zero} Z' fill='{fill}'/>")
             s.append(f"<text x='{zero + 8}' y='{y + bar / 2 + 5}' {FONT} font-size='13' fill='{t['ink2']}'>{-v}% more (both edits already answer briefly)</text>")
-    s.append(f"<text x='16' y='{h - 12}' {FONT} font-size='11' fill='{t['muted']}'>Total completion tokens, merged vs Astra. All differences except HumanEval are significant by a paired sign test (p &lt; 10⁻¹³).</text>")
+    s.append(f"<text x='16' y='{h - 12}' {FONT} font-size='11' fill='{t['muted']}'>Total completion tokens, merged vs Astra. Paired sign test p &lt; 1e-13 except HumanEval.</text>")
     s.append("</svg>")
     return "\n".join(s)
 
