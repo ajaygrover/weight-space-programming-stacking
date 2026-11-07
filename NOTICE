@@ -1,0 +1,11 @@
+Edited model weights released with this work are derived from:
+  - Qwen/Qwen3.5-0.8B (Qwen Team), Apache License 2.0
+  - RikiyaT/Qwen3.5-0.8B-weight-space-programming (Takehi, Teoh, Zhang, Khattab, 2026), Apache License 2.0
+
+Changes made (by Ajay Grover, 2026):
+  - "Opus" edit: W <- bf16((I - u u^T) W) for self_attn.o_proj, linear_attn.out_proj and mlp.down_proj
+    in layers 12-23, with u = edits/doubt_direction_u.json.
+  - "Merged" edit: the Opus edit plus the exact weight difference between the two checkpoints above
+    (mlp.down_proj in layers 15 and 19).
+These derived weights are distributed under the Apache License 2.0. They are unofficial and not affiliated
+with or endorsed by the Qwen Team or the authors of the Astra edit.
