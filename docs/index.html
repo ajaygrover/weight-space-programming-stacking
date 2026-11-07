@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Independently Discovered Weight Edits Compose | Ajay Grover</title>
+<meta name="description" content="An independent replication of Sparks of Weight-Space Programming, and the first test of stacking weight edits written by two different AIs. Qwen3.5-0.8B MATH-500: 6% to 52%, with 31% fewer tokens than the original edit.">
+<meta property="og:title" content="Independently Discovered Weight Edits Compose">
+<meta property="og:description" content="Replicating weight-space programming, and stacking edits written by GPT-6 Astra and Claude Opus 5.5.">
+<meta property="og:type" content="article">
+<style>
+:root{--bg:#fcfcfb;--fg:#1b1b1a;--fg2:#52514e;--mut:#898781;--line:#e1e0d9;--card:#f4f3ef;--acc:#2a78d6;--code:#f0efec}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1a19;--fg:#f0efec;--fg2:#c3c2b7;--mut:#898781;--line:#2c2c2a;--card:#232321;--acc:#5b9cf0;--code:#262624}}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;color:var(--fg);background:var(--bg);font:18px/1.65 Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif}
+.wrap{max-width:740px;margin:0 auto;padding:40px 22px 90px}
+.wide{max-width:1000px;margin:26px auto;padding:0 22px}
+.wide img{width:100%;height:auto;display:block}
+h1,h2,h3,.sans,nav,.meta,.cards,table,figcaption,.tldr-label,.callout-label{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+nav{font-size:14px;color:var(--mut);margin-bottom:46px}
+nav a{color:var(--mut);text-decoration:none;margin-right:16px}
+h1{font-size:38px;line-height:1.15;margin:0 0 18px;letter-spacing:-.01em}
+h2{font-size:25px;margin:58px 0 12px;letter-spacing:-.005em}
+h3{font-size:19px;margin:34px 0 8px}
+.meta{font-size:15px;color:var(--fg2);margin-bottom:30px}
+.meta b{color:var(--fg)}
+a{color:var(--acc)}
+p{margin:0 0 18px}
+.tldr{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0 8px;margin:6px 0 26px}
+.tldr-label{font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 34px}
+.card{background:var(--card);border-radius:10px;padding:16px 16px 14px}
+.card .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.card .n{font-size:30px;font-weight:700;margin:4px 0 2px;color:var(--fg)}
+.card .n span{color:var(--acc)}
+.card .d{font-size:14px;line-height:1.45;color:var(--fg2)}
+@media (max-width:640px){.cards{grid-template-columns:1fr}h1{font-size:30px}}
+.exp + h2{margin-top:6px}
+.exp{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin:46px 0 -4px}
+ul,ol{padding-left:24px;margin:0 0 18px}
+li{margin:4px 0}
+.setup{background:var(--card);border-radius:10px;padding:14px 20px 4px;margin:0 0 20px;font-size:16.5px}
+.setup b:first-child{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:8px 0 22px}
+th{text-align:left;font-weight:600;color:var(--mut);font-size:13px;border-bottom:1px solid var(--line);padding:7px 8px}
+td{border-bottom:1px solid var(--line);padding:8px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.hl td{font-weight:700}
+.callout{border-left:3px solid var(--acc);background:var(--card);border-radius:0 10px 10px 0;padding:14px 20px 4px;margin:22px 0}
+.callout-label{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+code,pre{font-family:ui-monospace,"Cascadia Mono",Consolas,monospace;font-size:14.5px}
+code{background:var(--code);padding:1px 5px;border-radius:4px}
+pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow-x:auto;line-height:1.5}
+pre code{background:none;padding:0}
+.eq{text-align:center;font-size:20px;margin:18px 0 22px;font-style:italic}
+figure{margin:26px 0}
+figcaption{font-size:14px;color:var(--fg2);margin-top:8px;line-height:1.5}
+.diagram{display:block;margin:0 auto;max-width:100%}
+.mut{color:var(--mut)}
+hr{border:0;border-top:1px solid var(--line);margin:56px 0 30px}
+.small{font-size:15px;color:var(--fg2)}
+</style>
+</head>
+<body>
+<div class="wrap" style="padding-bottom:0">
+<nav><a href="https://github.com/ajaygrover/weight-space-programming-stacking">Code &amp; data</a><a href="#citation">Cite</a></nav>
+
+<h1>Independently Discovered Weight Edits Compose</h1>
+<div class="meta"><b>Ajay Grover</b> · Independent researcher, Superposition · 7 November 2026<br>
+A replication and extension of <a href="https://rikiyat.github.io/blog/weight-space-programming/"><i>Sparks of Weight-Space Programming</i></a> (Takehi, Teoh, Zhang &amp; Khattab, 2026). Preprint; not peer reviewed.</div>
+
+<div class="tldr">
+<div class="tldr-label">TL;DR</div>
+<p>Earlier this week, MIT researchers showed that GPT-6 Astra could fix a small language model by editing its weights directly: no training, no gradients, a rank-1 change to 0.016% of the parameters. We reran it on a single consumer GPU. The edit <b>replicates</b>. We then gave the same task to Claude Opus 5.5, which found a <b>different</b> fix in a nearly orthogonal direction. The two fixes <b>compose</b>: applied together, they beat either alone and reach their answers with about a third fewer tokens.</p>
+</div>
+
+<div class="cards">
+<div class="card"><div class="k">Replicate</div><div class="n"><span>46.8%</span></div><div class="d">Astra's edit on all 500 MATH-500 problems (paper: 48.1%). Base: 6%.</div></div>
+<div class="card"><div class="k">Discover</div><div class="n"><span>40%</span></div><div class="d">Opus 5.5's own edit, removing a "doubt the problem" direction (cosine with Astra's ≈ 0.1).</div></div>
+<div class="card"><div class="k">Compose</div><div class="n"><span>52.2%</span></div><div class="d">Both edits together, beating Astra alone (p = 0.014) with 31% fewer tokens.</div></div>
+</div>
+
+<h2>Weight-space programming, briefly</h2>
+<p>Fine-tuning changes a model by showing it examples and following gradients. <a href="https://rikiyat.github.io/blog/weight-space-programming/">Takehi et al.</a> asked whether a capable language model could skip all that, and simply read another network's weights, work out what is wrong, and write the fix by hand. They call this <i>weight-space programming</i>.</p>
+<p>Their most practical result targets <a href="https://huggingface.co/Qwen/Qwen3.5-0.8B">Qwen3.5-0.8B</a>, a small reasoning model that often never finishes its answers. With thinking enabled it loops, restating the same doubts until it hits its token limit. Given a Python session over the weights and no gradients, GPT-6 Astra found a single direction that drives the looping and subtracted it from two matrices. MATH-500 accuracy rose from 7.9% to 48.1%.</p>
+<p>A claim this surprising deserves an independent check, and it raises obvious next questions. We asked three:</p>
+<ol>
+<li><b>Does the edit do what the paper says?</b></li>
+<li><b>Would a different AI find the same fix, or a different one?</b></li>
+<li><b>If two fixes exist, do they add up?</b></li>
+</ol>
+
+<div class="exp">Experiment 1</div>
+<h2>Does the published edit replicate?</h2>
+<div class="setup"><b>Setup.</b>
+<ul>
+<li>Base: Qwen3.5-0.8B in bf16. Edited: the authors' <a href="https://huggingface.co/RikiyaT/Qwen3.5-0.8B-weight-space-programming">published checkpoint</a>.</li>
+<li>Inference with llama.cpp on one RTX 5080 (16 GB). Edited tensors are written byte for byte into a bf16 GGUF of the base model.</li>
+<li>The authors' settings: thinking on, temperature 0.6, top-p 0.95, top-k 20, presence penalty 1.5, up to 32,768 new tokens.</li>
+<li>All 500 MATH-500 problems, one sample each, with a fixed per-problem seed shared by every model.</li>
+</ul></div>
+<p>First, the edit itself. Comparing every tensor bit for bit, only 2 of 488 differ: <code>mlp.down_proj</code> in layers 15 and 19, 64 columns each. Each change is rank 1, with the top singular value over 1,500 times the second. The paper describes it accurately. One small nuance: the two layers' directions agree at cosine 0.85, so "one direction" is a slight simplification.</p>
+<p>Then the score. The edited model solves <b>234 of 500 (46.8%)</b>, against the paper's 48.1% (averaged over four samples). The base model solves 6 of the first 100, against the paper's 7.9%, and 95 of its 100 answers run to the token limit (paper: 93%). <b>The result replicates.</b></p>
+
+<div class="callout"><div class="callout-label">One setting decides it</div>
+<p>Our first attempt failed: the edited model scored only 28%. The cause was a single default. vLLM, which the authors used, applies the presence penalty across the whole generated text. llama.cpp, by default, applies it only to the last 64 tokens. A model that loops over thousands of tokens never sees its own repetition through a 64-token window. Once the window covers the whole output, Astra's edit scores 47% on the same problems. If you replicate this on another engine, check this setting first.</p></div>
+
+<div class="exp">Experiment 2</div>
+<h2>Would a different AI find a different fix?</h2>
+<div class="setup"><b>Setup.</b>
+<ul>
+<li>A Claude Opus 5.5 agent got the authors' task in its own words, <i>without</i> their hint that repetition is the failure.</li>
+<li>Tools: Python over the weights; unlimited teacher-forced reads of activations; and 8 "passes" of a generation test on up to 32 practice problems. Astra had 10 to 50 passes of up to 512 generations.</li>
+<li>The authors' rules: no gradients or iterative fitting, no internet, no edits to embeddings, output layer or final norm, no whole-tensor rescaling, and no forcing the model to stop thinking.</li>
+<li>The agent could not see our evaluation problems or the authors' logs. It used 4 of its 8 passes and about three hours.</li>
+</ul></div>
+<p>Opus read the base model's failed reasoning and reached a different diagnosis. The model often gets the answer early. Then it starts doubting <i>the problem itself</i>: "maybe there's a typo", "perhaps the question means…", "alternatively…". The looping comes after that doubt. So instead of targeting the repetition, Opus targeted the doubt.</p>
+<p>It collected layer-18 activations just before doubting lines and just before ordinary lines, and took the difference as a direction <i>u</i>. It then removed that direction from every matrix that writes into the residual stream in layers 12–23 (attention outputs and MLP down-projections, 24 matrices):</p>
+<p class="eq">W &nbsp;←&nbsp; W − u (uᵀW)</p>
+<p>This is the same kind of operation as Astra's (a directional ablation), applied to a different direction. The two directions are nearly unrelated: their cosine is 0.095 and 0.119 for Astra's two layers. On its own, Opus's edit solves <b>40 of the first 100</b> problems, against base's 6 (p = 10⁻⁹). Astra's solves 47; the difference between the two single edits is not significant (p = 0.21). <b>Two AIs, two different working fixes.</b></p>
+
+<figure>
+<svg class="diagram" width="580" height="230" viewBox="0 0 580 230" role="img" aria-label="Two nearly orthogonal directions in the residual stream: a loop direction removed by Astra and a doubt direction removed by Opus">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+<g style="color:var(--acc)" stroke="currentColor" stroke-width="3" fill="none"><line x1="150" y1="190" x2="430" y2="160" marker-end="url(#ah)"/></g>
+<g style="color:var(--fg2)" stroke="currentColor" stroke-width="3" fill="none"><line x1="150" y1="190" x2="150" y2="30" marker-end="url(#ah)"/></g>
+<path d="M200,185 A50,50 0 0,0 150,140" fill="none" stroke="var(--mut)" stroke-width="1.5"/>
+<text x="206" y="160" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" fill="var(--mut)">≈ 84°</text>
+<text x="440" y="158" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="var(--acc)">doubt</text>
+<text x="440" y="176" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="var(--fg2)">removed by Opus</text>
+<text x="162" y="34" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="var(--fg2)">loop</text>
+<text x="162" y="52" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" fill="var(--fg2)">removed by Astra</text>
+</svg>
+<figcaption>The two edits remove nearly orthogonal directions from the model's 1,024-dimensional residual stream (cosine ≈ 0.1, an angle of about 84°). Schematic; a 2-D slice of a 1,024-D space.</figcaption>
+</figure>
+
+<div class="exp">Experiment 3</div>
+<h2>Do two fixes add up?</h2>
+<p>If the two edits remove different parts of one breakdown (doubt, then looping), applying both should help more than either. We built a merged model: Opus's edit first, then Astra's exact weight difference added on top. The rule reproduces our merged checkpoint bit for bit.</p>
+</div>
+
+<div class="wide"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="fig_math500_dark.svg">
+<img alt="Problems solved of 100 on MATH-500: merged 55, Astra 47, Opus 40, random edit 20, base 6. Tokens used on the same problems: merged 1.46M, Astra 2.25M, Opus 2.06M, random edit 2.84M, base 3.14M." src="fig_math500_light.svg">
+</picture></div>
+
+<div class="wrap" style="padding-top:0;padding-bottom:0">
+<p>They do. On all 500 MATH-500 problems:</p>
+<table>
+<tr><th></th><th class="num">Merged</th><th class="num">Astra alone</th></tr>
+<tr class="hl"><td>Correct</td><td class="num">261 (52.2%)</td><td class="num">234 (46.8%)</td></tr>
+<tr><td>Solved by only this model</td><td class="num">70</td><td class="num">43</td></tr>
+<tr><td>Answers cut off at 32k tokens</td><td class="num">151</td><td class="num">190</td></tr>
+<tr><td>Total tokens</td><td class="num">7.93M</td><td class="num">11.50M</td></tr>
+</table>
+<p>Merged solves 70 problems that Astra's edit misses, and loses 43 (exact McNemar test, <b>p = 0.014</b>). Against Opus's edit alone, on the first 100, it gains 19 and loses 4 (<b>p = 0.003</b>). It keeps most of what each single edit solves and adds more.</p>
+<p>The bigger surprise is how much less the merged model writes. It uses fewer tokens than Astra's edit on <b>328</b> problems and more on 69 (sign test, p ≈ 10⁻⁴¹). On problems both solve, its median answer is about a third as long. Removing doubt shortens reasoning.</p>
+
+<div class="exp">Controls</div>
+<h2>Is any edit of this size enough?</h2>
+<p>A fair worry: maybe nudging the weights almost anywhere would knock the model out of its loops. To test this, we built a control with the same structure and size as the merged edit, but random directions:</p>
+<ul>
+<li>the Opus operation with a random unit direction;</li>
+<li>a random edit matched to Astra's columns, coefficients and norm.</li>
+</ul>
+<p>Per matrix, its change is as large as merged's or larger.</p>
+<table>
+<tr><th>Model, first 100 problems</th><th class="num">Correct</th><th class="num">Cut off at 32k</th></tr>
+<tr class="hl"><td>Merged</td><td class="num">55</td><td class="num">27</td></tr>
+<tr><td>Astra edit</td><td class="num">47</td><td class="num">40</td></tr>
+<tr><td>Opus edit</td><td class="num">40</td><td class="num">58</td></tr>
+<tr><td>Random edit, same size and structure</td><td class="num">20</td><td class="num">80</td></tr>
+<tr><td>Base</td><td class="num">6</td><td class="num">95</td></tr>
+</table>
+<p>The random edit does help, which we did not expect: 20 against base's 6 (p = 0.003). Looking at the problems it solves, base had run to the token limit on each, while merged solved them in a few thousand tokens. Base seems to sit on a knife-edge. It knows many answers but cannot stop, and any perturbation of this size shakes it out of some loops.</p>
+<p>The AI-found directions do far more. Merged solves 37 problems the random edit misses, against 2 the other way (p = 3 × 10⁻⁹). In points over base, that is +49 against +14. <b>Shaking the model helps a little; knowing where to push helps much more.</b></p>
+
+<div class="exp">Beyond math</div>
+<h2>Does removing doubt cost anything elsewhere?</h2>
+<p>Doubt is sometimes useful. An edit that suppresses it could hurt tasks where reconsidering is the right move. We ran the merged and Astra models on four more benchmarks. Code is executed in a Docker sandbox with no network.</p>
+<table>
+<tr><th>Benchmark</th><th class="num">Merged</th><th class="num">Astra</th><th class="num">p</th></tr>
+<tr><td>MMLU-Pro (200 questions)</td><td class="num"><b>90</b> (45.0%)</td><td class="num">78 (39.0%)</td><td class="num">0.07</td></tr>
+<tr><td>GSM8K (100)</td><td class="num">68</td><td class="num"><b>71</b></td><td class="num">0.63</td></tr>
+<tr><td>HumanEval (164)</td><td class="num"><b>57</b> (34.8%)</td><td class="num">51 (31.1%)</td><td class="num">0.34</td></tr>
+<tr><td>MBPP (500)</td><td class="num"><b>97</b> (19.4%)</td><td class="num">92 (18.4%)</td><td class="num">0.64</td></tr>
+</table>
+<p>Merging is never significantly worse, and leans better on knowledge questions. On HumanEval, base scores 47 (28.7%) while using 3.6 times merged's tokens. The token savings are consistent:</p>
+</div>
+
+<div class="wide" style="max-width:800px"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="fig_tokens_dark.svg">
+<img alt="Tokens saved by merged relative to Astra: GSM8K 66% fewer, MMLU-Pro 39% fewer, MBPP 32% fewer, MATH-500 31% fewer, HumanEval 15% more." src="fig_tokens_light.svg">
+</picture></div>
+
+<div class="wrap" style="padding-top:0">
+<h2>What we are unsure about</h2>
+<p><b>The token limit may flatter the merge.</b> A model cut off at 32,768 tokens might have reached the right answer with more room. We measured how repetitive the last 20,000 characters of each cut-off answer were, on the first 100 problems:</p>
+<table>
+<tr><th>Model</th><th class="num">Cut off</th><th class="num">Stuck in a loop</th><th class="num">Still writing new text</th></tr>
+<tr><td>Opus edit</td><td class="num">58</td><td class="num">57</td><td class="num">1</td></tr>
+<tr><td>Merged</td><td class="num">27</td><td class="num">16</td><td class="num">6</td></tr>
+<tr><td>Astra edit</td><td class="num">40</td><td class="num">8</td><td class="num">29</td></tr>
+</table>
+<p>Opus's cut-off answers are almost all loops; more room would not help them. Astra's are mostly still making progress, so a higher limit could narrow the gap to merged. We will continue every cut-off answer to 64k tokens and report both. The efficiency result holds either way.</p>
+<p><b>One run of each.</b> One sample per problem, one random-control seed, and a single Opus attempt. Astra's own three runs found three different edits, and effects found on a first attempt often shrink when repeated. More Opus runs are next.</p>
+<p><b>Base mostly fails to finish.</b> Under these settings, base also runs out of tokens on most MMLU-Pro questions, so gains over base partly mean "finishing", not "knowing more". Base runs on MMLU-Pro, GSM8K and MBPP were still in progress at the time of writing.</p>
+<p><b>One small model.</b> A larger model that loops less may gain less from either edit.</p>
+
+<h2>What comes next</h2>
+<ul>
+<li><b>A doubt dial.</b> Instead of removing the direction fully, scale it from "more doubt" to "none" and map accuracy and length along the way.</li>
+<li><b>Scale.</b> Look for the same directions in a 3–4B model from the same family, and then in a frontier-size open model.</li>
+<li><b>More surgeons.</b> The same task, under identical rules, for other frontier and local models.</li>
+<li><b>Many edits.</b> If two fixes compose, do five? Where do returns stop?</li>
+<li><b>A warm start for training.</b> Most base rollouts end at the token limit with zero reward. An edited model may make reinforcement learning far cheaper.</li>
+</ul>
+<p>A caution belongs here too. The projection that removes doubt or looping could just as easily remove a safety behaviour. Agents that can write such edits make oversight of weight changes more important, not less.</p>
+
+<h2>Code and data</h2>
+<p>Everything is at <a href="https://github.com/ajaygrover/weight-space-programming-stacking">github.com/ajaygrover/weight-space-programming-stacking</a>:</p>
+<ul>
+<li>the doubt direction (1,024 numbers);</li>
+<li>a script that rebuilds both edits bit for bit from the public checkpoints;</li>
+<li>the evaluation pipeline and graders;</li>
+<li>per-problem outputs for every model.</li>
+</ul>
+<p>The whole study runs on one 16 GB consumer GPU.</p>
+<pre><code>python scripts/apply_edits.py --edit merged --full --out qwen3.5-0.8b-merged</code></pre>
+
+<h2>Acknowledgements</h2>
+<p>Thanks to Takehi, Teoh, Zhang and Khattab for publishing their edited model, logs and code; an exact replication would not have been possible otherwise.</p>
+<p>This work studies AI agents editing weights, and AI assisted throughout. Claude Opus 5.5, run as a separate agent, wrote the second edit as the experimental subject. Claude built and ran the evaluation pipeline and drafted text under my direction. I directed the research and am responsible for all claims.</p>
+
+<h2 id="citation">Citation</h2>
+<p class="small">Please cite this post as: Grover, A. (2026). <i>Independently Discovered Weight Edits Compose: A Replication and Extension of Weight-Space Programming.</i></p>
+<pre><code>@misc{grover2026compose,
+  title  = {Independently Discovered Weight Edits Compose: A Replication
+            and Extension of Weight-Space Programming},
+  author = {Grover, Ajay},
+  year   = {2026},
+  url    = {https://ajaygrover.github.io/weight-space-programming-stacking/}
+}</code></pre>
+</div>
+</body>
+</html>

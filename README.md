@@ -2,6 +2,8 @@
 
 ### Independently Discovered Weight Edits Compose: A Replication and Extension of Weight-Space Programming
 
+📝 **Blog post:** [ajaygrover.github.io/weight-space-programming-stacking](https://ajaygrover.github.io/weight-space-programming-stacking/)
+
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Weights: Apache-2.0](https://img.shields.io/badge/weights-Apache--2.0-blue.svg)](NOTICE)
 ![Status: preprint](https://img.shields.io/badge/status-preprint-orange.svg)

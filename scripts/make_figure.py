@@ -64,12 +64,45 @@ def svg(t):
     return "\n".join(s)
 
 
+# Figure 2: token change of merged vs Astra per benchmark (total completion tokens, same problems).
+SAVE = [("GSM8K (100)", 66), ("MMLU-Pro (200)", 39), ("MBPP (500)", 32), ("MATH-500 (500)", 31), ("HumanEval (164)", -15)]
+
+
+def svg_tokens(t):
+    w, h, lw, zero, scale = 760, 300, 150, 330, 4.2   # zero = x of 0%, px per percentage point
+    top, row, bar = 56, 36, 20
+    s = [f"<svg xmlns='http://www.w3.org/2000/svg' width='{w}' height='{h}' viewBox='0 0 {w} {h}' role='img' "
+         f"aria-label='Tokens saved by the merged edit relative to Astra, per benchmark'>",
+         f"<rect width='{w}' height='{h}' rx='8' fill='{t['surface']}'/>",
+         f"<text x='16' y='30' {FONT} font-size='15' font-weight='700' fill='{t['ink']}'>Fewer tokens than Astra's edit alone (same problems)</text>"]
+    bottom = top + row * len(SAVE)
+    for tv in (-20, 0, 20, 40, 60):
+        x = zero + tv * scale
+        s.append(f"<line x1='{x}' y1='{top - 6}' x2='{x}' y2='{bottom}' stroke='{t['base'] if tv == 0 else t['grid']}' stroke-width='1'/>")
+        s.append(f"<text x='{x}' y='{bottom + 18}' {FONT} font-size='11' fill='{t['muted']}' text-anchor='middle'>{tv:+d}%</text>".replace("+0%", "0%"))
+    for i, (name, v) in enumerate(SAVE):
+        y = top + row * i + (row - bar) / 2
+        s.append(f"<text x='{lw - 10}' y='{y + bar / 2 + 5}' {FONT} font-size='13' fill='{t['ink']}' text-anchor='end'>{name}</text>")
+        fill = t["accent"] if v > 0 else t["other"]
+        if v >= 0:
+            s.append(rounded_bar(zero, y, v * scale, bar, 4, fill))
+            s.append(f"<text x='{zero + v * scale + 8}' y='{y + bar / 2 + 5}' {FONT} font-size='13' font-weight='700' fill='{t['ink']}'>{v}% fewer</text>")
+        else:
+            wv = -v * scale
+            s.append(f"<path d='M{zero},{y} H{zero - wv + 4} Q{zero - wv},{y} {zero - wv},{y + 4} V{y + bar - 4} Q{zero - wv},{y + bar} {zero - wv + 4},{y + bar} H{zero} Z' fill='{fill}'/>")
+            s.append(f"<text x='{zero + 8}' y='{y + bar / 2 + 5}' {FONT} font-size='13' fill='{t['ink2']}'>{-v}% more (both edits already answer briefly)</text>")
+    s.append(f"<text x='16' y='{h - 12}' {FONT} font-size='11' fill='{t['muted']}'>Total completion tokens, merged vs Astra. All differences except HumanEval are significant by a paired sign test (p &lt; 10⁻¹³).</text>")
+    s.append("</svg>")
+    return "\n".join(s)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     for name, t in THEMES.items():
-        p = os.path.join(OUT, f"fig_math500_{name}.svg")
-        open(p, "w", encoding="utf-8").write(svg(t))
-        print("wrote", p)
+        for stem, fn in (("fig_math500", svg), ("fig_tokens", svg_tokens)):
+            p = os.path.join(OUT, f"{stem}_{name}.svg")
+            open(p, "w", encoding="utf-8").write(fn(t))
+            print("wrote", p)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,30 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='760' height='300' viewBox='0 0 760 300' role='img' aria-label='Tokens saved by the merged edit relative to Astra, per benchmark'>
+<rect width='760' height='300' rx='8' fill='#fcfcfb'/>
+<text x='16' y='30' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='15' font-weight='700' fill='#0b0b0b'>Fewer tokens than Astra's edit alone (same problems)</text>
+<line x1='246.0' y1='50' x2='246.0' y2='236' stroke='#e1e0d9' stroke-width='1'/>
+<text x='246.0' y='254' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>-20%</text>
+<line x1='330.0' y1='50' x2='330.0' y2='236' stroke='#c3c2b7' stroke-width='1'/>
+<text x='330.0' y='254' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>0%</text>
+<line x1='414.0' y1='50' x2='414.0' y2='236' stroke='#e1e0d9' stroke-width='1'/>
+<text x='414.0' y='254' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>+20%</text>
+<line x1='498.0' y1='50' x2='498.0' y2='236' stroke='#e1e0d9' stroke-width='1'/>
+<text x='498.0' y='254' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>+40%</text>
+<line x1='582.0' y1='50' x2='582.0' y2='236' stroke='#e1e0d9' stroke-width='1'/>
+<text x='582.0' y='254' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781' text-anchor='middle'>+60%</text>
+<text x='140' y='79.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#0b0b0b' text-anchor='end'>GSM8K (100)</text>
+<path d='M330,64.0 H603.2 Q607.2,64.0 607.2,68.0 V80.0 Q607.2,84.0 603.2,84.0 H330 Z' fill='#2a78d6'/>
+<text x='615.2' y='79.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>66% fewer</text>
+<text x='140' y='115.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#0b0b0b' text-anchor='end'>MMLU-Pro (200)</text>
+<path d='M330,100.0 H489.8 Q493.8,100.0 493.8,104.0 V116.0 Q493.8,120.0 489.8,120.0 H330 Z' fill='#2a78d6'/>
+<text x='501.8' y='115.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>39% fewer</text>
+<text x='140' y='151.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#0b0b0b' text-anchor='end'>MBPP (500)</text>
+<path d='M330,136.0 H460.4 Q464.4,136.0 464.4,140.0 V152.0 Q464.4,156.0 460.4,156.0 H330 Z' fill='#2a78d6'/>
+<text x='472.4' y='151.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>32% fewer</text>
+<text x='140' y='187.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#0b0b0b' text-anchor='end'>MATH-500 (500)</text>
+<path d='M330,172.0 H456.20000000000005 Q460.20000000000005,172.0 460.20000000000005,176.0 V188.0 Q460.20000000000005,192.0 456.20000000000005,192.0 H330 Z' fill='#2a78d6'/>
+<text x='468.20000000000005' y='187.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' font-weight='700' fill='#0b0b0b'>31% fewer</text>
+<text x='140' y='223.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#0b0b0b' text-anchor='end'>HumanEval (164)</text>
+<path d='M330,208.0 H271.0 Q267.0,208.0 267.0,212.0 V224.0 Q267.0,228.0 271.0,228.0 H330 Z' fill='#c3c2b7'/>
+<text x='338' y='223.0' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='13' fill='#52514e'>15% more (both edits already answer briefly)</text>
+<text x='16' y='288' font-family='-apple-system,Segoe UI,Helvetica,Arial,sans-serif' font-size='11' fill='#898781'>Total completion tokens, merged vs Astra. All differences except HumanEval are significant by a paired sign test (p &lt; 10⁻¹³).</text>
+</svg>
