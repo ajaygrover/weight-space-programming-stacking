@@ -54,13 +54,13 @@ thinking on; temperature 0.6, top_p 0.95, top_k 20; presence penalty 1.5 over th
 |---|---|---|---|---|---|---|
 | Merged (Astra + Opus) | 97 | 500 | 19.4% | 790 | 0.45M | 0 |
 | Astra (GPT-6) edit | 92 | 500 | 18.4% | 922 | 0.67M | 1 |
-| Base (unedited) | 18 | 65 | 27.7% | 1,032 | 0.21M | 4 |
+| Base (unedited) | 30 | 139 | 21.6% | 1,138 | 0.75M | 18 |
 
 | Pair | n | Correct | Only first / only second | p (McNemar) | Fewer tokens (first / second) | p (sign) | Total tokens |
 |---|---|---|---|---|---|---|---|
 | Merged (Astra + Opus) vs Astra (GPT-6) edit | 500 | 97 vs 92 | 39 / 34 | 0.64 | 334 / 166 | 4.7e-14 | 0.45M vs 0.67M |
-| Merged (Astra + Opus) vs Base (unedited) | 65 | 17 vs 18 | 5 / 6 | 1 | 54 / 11 | 6e-08 | 0.05M vs 0.21M |
-| Astra (GPT-6) edit vs Base (unedited) | 65 | 9 vs 18 | 1 / 10 | 0.0117 | 31 / 34 | 0.8 | 0.09M vs 0.21M |
+| Merged (Astra + Opus) vs Base (unedited) | 139 | 26 vs 30 | 9 / 13 | 0.523 | 115 / 24 | 1.9e-15 | 0.12M vs 0.75M |
+| Astra (GPT-6) edit vs Base (unedited) | 139 | 23 vs 30 | 10 / 17 | 0.248 | 83 / 56 | 0.027 | 0.19M vs 0.75M |
 
 ## MMLU-Pro, 200 sampled (seed 0)
 
@@ -68,13 +68,13 @@ thinking on; temperature 0.6, top_p 0.95, top_k 20; presence penalty 1.5 over th
 |---|---|---|---|---|---|---|
 | Merged (Astra + Opus) | 90 | 200 | 45.0% | 3,439 | 2.10M | 37 |
 | Astra (GPT-6) edit | 78 | 200 | 39.0% | 15,670 | 3.46M | 27 |
-| Base (unedited) | 21 | 153 | 13.7% | 32,768 | 4.34M | 127 |
+| Base (unedited) | 21 | 170 | 12.4% | 32,768 | 4.90M | 144 |
 
 | Pair | n | Correct | Only first / only second | p (McNemar) | Fewer tokens (first / second) | p (sign) | Total tokens |
 |---|---|---|---|---|---|---|---|
 | Merged (Astra + Opus) vs Astra (GPT-6) edit | 200 | 90 vs 78 | 25 / 13 | 0.073 | 157 / 28 | 5.7e-23 | 2.10M vs 3.46M |
-| Merged (Astra + Opus) vs Base (unedited) | 153 | 71 vs 21 | 54 / 4 | 3.17e-12 | 131 / 0 | 7.3e-40 | 1.34M vs 4.34M |
-| Astra (GPT-6) edit vs Base (unedited) | 153 | 62 vs 21 | 43 / 2 | 5.89e-11 | 120 / 14 | 3.5e-22 | 2.48M vs 4.34M |
+| Merged (Astra + Opus) vs Base (unedited) | 170 | 81 vs 21 | 64 / 4 | 5.87e-15 | 145 / 0 | 4.5e-44 | 1.55M vs 4.90M |
+| Astra (GPT-6) edit vs Base (unedited) | 170 | 72 vs 21 | 53 / 2 | 8.55e-14 | 135 / 14 | 5.1e-26 | 2.82M vs 4.90M |
 
 ## GSM8K, first 100
 
