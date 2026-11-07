@@ -1,6 +1,6 @@
 # Weight-Space Programming, Replicated and Stacked
 
-### Two Cures Beat One: AI-Written Weight Edits Replicate, Stack, and Think Shorter
+### Independently Discovered Weight Edits Compose: A Replication and Extension of Weight-Space Programming
 
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Weights: Apache-2.0](https://img.shields.io/badge/weights-Apache--2.0-blue.svg)](NOTICE)
@@ -147,8 +147,8 @@ more AI surgeons under identical rules, and edited models as a warm start for re
 ## Citation
 
 ```bibtex
-@misc{grover2026twocures,
-  title  = {Two Cures Beat One: AI-Written Weight Edits Replicate, Stack, and Think Shorter},
+@misc{grover2026compose,
+  title  = {Independently Discovered Weight Edits Compose: A Replication and Extension of Weight-Space Programming},
   author = {Grover, Ajay},
   year   = {2026},
   note   = {Preprint},
