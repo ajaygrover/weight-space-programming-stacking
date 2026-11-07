@@ -1,10 +1,13 @@
 # Two Cures Beat One: AI-Written Weight Edits Replicate, Stack, and Think Shorter
 
-Code, edits and results for an independent replication and extension of Takehi et al. (2026),
-*Sparks of Weight-Space Programming*, by **Ajay Grover** (independent researcher, Superposition).
+**Replicating and stacking weight-space programming.** An independent replication of Takehi et al. (2026),
+*Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights*, plus the first test of
+**stacking** two weight edits written by different AIs (GPT-6 Astra and Claude Opus 5.5).
+By **Ajay Grover** (independent researcher, Superposition).
 
-> **Status: interim.** MATH-500 is final for merged and Astra. Base and random-control runs are still in progress;
-> `results/summary.md` is regenerated as they finish.
+> **Status: preprint, not peer reviewed.** All MATH-500 results are final, including base and the random-direction
+> control. Base on MMLU-Pro, GSM8K and MBPP is still running; `results/summary.md` is regenerated as runs finish.
+> Per-problem outputs (all model text) are attached to the GitHub release.
 
 ## What this is
 
@@ -28,8 +31,20 @@ We:
 | Fewer tokens on (sign test) | **328 problems** | 69 problems (p ≈ 10⁻⁴¹) |
 | Total tokens | **7.93M** | 11.50M |
 
-Results for HumanEval, MBPP, MMLU-Pro and GSM8K, the base model and the random-direction control are in
-[`results/summary.md`](results/summary.md).
+**Controls (MATH-500, first 100, same problems):**
+
+| Model | Correct | Answers cut off at 32k |
+|---|---|---|
+| Merged (Astra + Opus) | **55** | 27 |
+| Astra edit | 47 | 40 |
+| Opus edit | 40 | 58 |
+| Random-direction edit, same size and structure | 20 | 80 |
+| Base (unedited; paper: 7.9%) | 6 | 95 |
+
+A size-matched random edit helps a little (the base model sits near a tipping point), but merged solves 37 problems
+it misses against 2 the other way (p = 3 × 10⁻⁹).
+
+Results for HumanEval, MBPP, MMLU-Pro and GSM8K, with paired tests, are in [`results/summary.md`](results/summary.md).
 
 ## Contents
 
