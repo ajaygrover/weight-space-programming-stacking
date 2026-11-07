@@ -1,4 +1,4 @@
-"""Apply the weight edits from "Two Cures Beat One" to Qwen3.5-0.8B (Hugging Face safetensors).
+"""Apply the weight edits from "Independently Discovered Weight Edits Compose" (Grover, 2026) to Qwen3.5-0.8B (Hugging Face safetensors).
 
   opus   : remove the doubt direction u from every residual-writing matrix in layers 12-23:
            W <- bf16( (I - u u^T) W )   on self_attn.o_proj / linear_attn.out_proj / mlp.down_proj
